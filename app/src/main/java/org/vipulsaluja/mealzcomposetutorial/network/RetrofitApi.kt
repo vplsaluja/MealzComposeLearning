@@ -1,9 +1,9 @@
 package org.vipulsaluja.mealzcomposetutorial.network
 
-import org.vipulsaluja.mealzcomposetutorial.model.MealsCategory
+import org.vipulsaluja.mealzcomposetutorial.model.MealsResponse
 import retrofit2.http.GET
 
 interface RetrofitApi {
     @GET("categories.php")
-    fun getDishList(): List<MealsCategory>
+    suspend fun getDishList(): MealsResponse
 }

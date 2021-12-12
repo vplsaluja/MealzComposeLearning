@@ -5,6 +5,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
+
     private const val BASE_URL = "https://www.themealdb.com/api/json/v1/1/"
 
     fun getRetrofitApi(): RetrofitApi {
