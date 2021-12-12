@@ -13,13 +13,16 @@ class MealsViewModel : ViewModel() {
 
     private val repository = MealsRepository()
 
-    private var meals: MutableState<MealsResponse> = mutableStateOf(MealsResponse(null))
+    private var meals: MutableState<MealsResponse> = mutableStateOf(MealsResponse(emptyList()))
 
     fun fetchMeals() {
         viewModelScope.launch(Dispatchers.IO) {
             val mealsResponse = repository.getMealsListing()
             meals.value = mealsResponse
         }
+    }
 
+    fun getMeals(): MealsResponse {
+        return meals.value
     }
 }

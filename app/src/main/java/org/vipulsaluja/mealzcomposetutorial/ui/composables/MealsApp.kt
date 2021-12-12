@@ -1,10 +1,11 @@
 package org.vipulsaluja.mealzcomposetutorial.ui.composables
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import java.lang.reflect.Modifier
+import org.vipulsaluja.mealzcomposetutorial.model.MealsResponse
 
 @Composable
-fun MealsApp(navController: NavController, modifier: Modifier) {
-    DishViewComposable(dishName = "Demo Dish", modifier = modifier)
+fun MealsApp(meals: MealsResponse, navController: NavController, modifier: Modifier = Modifier) {
+    DishListComposable(meals = meals, navController = navController, modifier = modifier)
 }
