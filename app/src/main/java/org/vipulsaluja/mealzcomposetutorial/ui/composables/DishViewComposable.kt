@@ -4,8 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,7 +43,9 @@ fun DishViewComposable(meal: MealsCategory, modifier: Modifier = Modifier) {
             )
             Column(
                 modifier = Modifier
+                    .fillMaxWidth(.8f)
                     .padding(10.dp)
+                    .align(Alignment.CenterVertically)
             ) {
                 Text(
                     text = meal.name,
@@ -55,6 +60,10 @@ fun DishViewComposable(meal: MealsCategory, modifier: Modifier = Modifier) {
                     overflow = TextOverflow.Ellipsis
                 )
             }
+            Icon(
+                imageVector = Icons.Filled.KeyboardArrowRight, contentDescription = "",
+                modifier = Modifier.align(Alignment.CenterVertically)
+            )
         }
     }
 }
@@ -67,7 +76,7 @@ fun PreviewDishViewComposable() {
             id = "1",
             name = "Dish Demo Name",
             thumbnail = "https://www.themealdb.com/images/category/beef.png",
-            desc = "This is demo description"
+            desc = "This is demo description."
         )
     )
 }

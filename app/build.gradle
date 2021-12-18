@@ -62,7 +62,7 @@ dependencies {
 
 //    image loading
 
-    implementation("io.coil-kt:coil-compose:1.4.0")
+    implementation "io.coil-kt:coil-compose:1.4.0"
 
 //    retrofit
     def retrofit_version = '2.9.0'
