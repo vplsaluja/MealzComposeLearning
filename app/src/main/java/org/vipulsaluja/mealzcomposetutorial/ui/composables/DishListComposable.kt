@@ -13,11 +13,12 @@ import org.vipulsaluja.mealzcomposetutorial.model.MealsResponse
 fun DishListComposable(
     meals: MealsResponse,
     navController: NavController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigateToDetail: (String) -> Unit
 ) {
     LazyColumn(contentPadding = PaddingValues(16.dp)) {
         items(meals.meals) { meal ->
-            DishViewComposable(meal = meal)
+            DishViewComposable(meal = meal, navigateToDetail = navigateToDetail)
         }
     }
 }

@@ -6,6 +6,6 @@ import androidx.navigation.NavController
 import org.vipulsaluja.mealzcomposetutorial.model.MealsResponse
 
 @Composable
-fun MealsApp(meals: MealsResponse, navController: NavController, modifier: Modifier = Modifier) {
-    DishListComposable(meals = meals, navController = navController, modifier = modifier)
+fun MealsApp(meals: MealsResponse, navController: NavController, modifier: Modifier = Modifier,navigateToDetail:(String)->Unit) {
+    DishListComposable(meals = meals, navController = navController, modifier = modifier,navigateToDetail=navigateToDetail)
 }

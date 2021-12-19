@@ -2,6 +2,7 @@ package org.vipulsaluja.mealzcomposetutorial.ui.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
@@ -21,13 +22,18 @@ import org.vipulsaluja.mealzcomposetutorial.model.MealsCategory
 import org.vipulsaluja.mealzcomposetutorial.model.MealsResponse
 
 @Composable
-fun DishViewComposable(meal: MealsCategory, modifier: Modifier = Modifier) {
+fun DishViewComposable(
+    meal: MealsCategory,
+    modifier: Modifier = Modifier,
+    navigateToDetail: (String) -> Unit
+) {
     Card(
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
             .fillMaxWidth()
             .padding(all = 5.dp)
             .background(MaterialTheme.colors.background)
+            .clickable { navigateToDetail(meal.id) }
     ) {
         Row(modifier = Modifier.fillMaxWidth()) {
             Image(
@@ -77,6 +83,7 @@ fun PreviewDishViewComposable() {
             name = "Dish Demo Name",
             thumbnail = "https://www.themealdb.com/images/category/beef.png",
             desc = "This is demo description."
-        )
+        ),
+        navigateToDetail = {}
     )
 }

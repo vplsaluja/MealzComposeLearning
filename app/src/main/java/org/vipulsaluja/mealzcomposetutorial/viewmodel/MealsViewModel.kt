@@ -11,7 +11,7 @@ import org.vipulsaluja.mealzcomposetutorial.repository.MealsRepository
 
 class MealsViewModel : ViewModel() {
 
-    private val repository = MealsRepository()
+    private val repository = MealsRepository.getInstance()
 
     private var meals: MutableState<MealsResponse> = mutableStateOf(MealsResponse(emptyList()))
 
