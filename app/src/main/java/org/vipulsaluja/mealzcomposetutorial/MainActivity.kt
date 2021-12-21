@@ -1,13 +1,10 @@
 package org.vipulsaluja.mealzcomposetutorial
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.ui.Modifier
+import androidx.compose.material.*
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -29,15 +26,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             MealzComposeTutorialTheme {
                 // A surface container using the 'background' color from the theme
+
                 Surface(color = MaterialTheme.colors.background) {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "meals_listing") {
                         composable(route = "meals_listing") {
                             mealsViewModel.fetchMeals()
                             MealsApp(
-                                meals = mealsViewModel.getMeals(),
-                                navController = navController,
-                                modifier = Modifier
+                                title = getString(R.string.app_name),
+                                meals = mealsViewModel.getMeals()
                             ) { mealId ->
                                 navController.navigate("meals_detail/$mealId")
                             }
@@ -50,13 +47,16 @@ class MainActivity : ComponentActivity() {
                         ) {
                             val dishDetailViewModel: DishDetailViewModel = viewModel()
                             dishDetailViewModel.getMeal()
-                                ?.let { item -> DishDetailComposable(meal = item) }
+                                ?.let { item ->
+                                    DishDetailComposable(
+                                        meal = item,
+                                        navigateBack = { navController.popBackStack() }
+                                    )
+                                }
                         }
                     }
                 }
             }
         }
-
-
     }
 }

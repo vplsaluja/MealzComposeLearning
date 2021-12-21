@@ -19,12 +19,10 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
 import org.vipulsaluja.mealzcomposetutorial.model.MealsCategory
-import org.vipulsaluja.mealzcomposetutorial.model.MealsResponse
 
 @Composable
 fun DishViewComposable(
     meal: MealsCategory,
-    modifier: Modifier = Modifier,
     navigateToDetail: (String) -> Unit
 ) {
     Card(

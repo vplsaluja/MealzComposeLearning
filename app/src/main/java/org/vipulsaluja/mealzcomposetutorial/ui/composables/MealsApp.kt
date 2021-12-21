@@ -1,11 +1,17 @@
 package org.vipulsaluja.mealzcomposetutorial.ui.composables
 
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import org.vipulsaluja.mealzcomposetutorial.model.MealsResponse
 
 @Composable
-fun MealsApp(meals: MealsResponse, navController: NavController, modifier: Modifier = Modifier,navigateToDetail:(String)->Unit) {
-    DishListComposable(meals = meals, navController = navController, modifier = modifier,navigateToDetail=navigateToDetail)
+fun MealsApp(title: String, meals: MealsResponse, navigateToDetail: (String) -> Unit) {
+    Scaffold(topBar = {
+        TopAppBar(
+            title = { Text(text = title) })
+    }) {
+        DishListComposable(meals = meals, navigateToDetail = navigateToDetail)
+    }
 }
